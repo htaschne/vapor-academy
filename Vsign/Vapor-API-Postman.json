@@ -1,0 +1,39 @@
+{
+    "info": {
+        "name": "Vapor Todo API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Get Todos",
+            "request": {
+                "method": "GET",
+                "url": "http://localhost:8080/todos"
+            }
+        },
+        {
+            "name": "Create Todo",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"title\": \"Learn Vapor\",\n  \"completed\": false\n}"
+                },
+                "url": "http://localhost:8080/todos"
+            }
+        },
+        {
+            "name": "Delete Todo",
+            "request": {
+                "method": "DELETE",
+                "url": "http://localhost:8080/todos/{{todoID}}"
+            }
+        }
+    ]
+}

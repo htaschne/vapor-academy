@@ -4,25 +4,25 @@ import Leaf
 import NIOSSL
 import Vapor
 
-// configures your application
 public func configure(_ app: Application) async throws {
     // uncomment to serve files from /Public folder
     // app.middleware.use(FileMiddleware(publicDirectory: app.directory.publicDirectory))
 
     app.databases.use(
-        DatabaseConfigurationFactory.postgres(
+        .postgres(
             configuration: .init(
-                hostname: Environment.get("DATABASE_HOST") ?? "localhost",
-                port: Environment.get("DATABASE_PORT").flatMap(Int.init(_:))
-                    ?? SQLPostgresConfiguration.ianaPortNumber,
-                username: Environment.get("DATABASE_USERNAME") ?? "admin",
-                password: Environment.get("DATABASE_PASSWORD") ?? "admin",
-                database: Environment.get("DATABASE_NAME") ?? "postgres",
-                tls: .prefer(try .init(configuration: .clientDefault)))
-        ), as: .psql)
+                hostname: "localhost",
+                port: 5432,
+                username: "htaschne",
+                password: "admin",
+                database: "vapor",
+                tls: .disable
+            )
+        ),
+        as: .psql
+    )
 
     app.migrations.add(CreateTodo())
-
     app.views.use(.leaf)
 
     // register routes
