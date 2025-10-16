@@ -1,7 +1,7 @@
 # Everything VAPOR
 
 
-## Creating a new Rest
+## Creating the API project
 
 Pre-requisites: Swift and Vapor (`brew install swift` and `brew install vapor`)
 
@@ -23,3 +23,8 @@ swift package update
 swift run
 ```
 
+## Configuring Postgres SQL Database
+
+Pre-requisite: pgAdmin 4 (or later) installed and a db ready
+
+1) 
