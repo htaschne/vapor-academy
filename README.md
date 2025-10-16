@@ -55,5 +55,34 @@ app.databases.use(
 ``` sh
 $ swift run MyBackend migrate
 ```
-> Note: MyBackend is just a placeholder, use the name of your backend app
-> Also, if you'd like to test the API there's a Postman script (`Vsign/Vapor-API-Postman.json`) which you can import.
+> Note: MyBackend is just a placeholder, use the name of your backend app. Also, if you'd like to test the API there's a Postman script (`Vsign/Vapor-API-Postman.json`) which you can import.
+
+## Modifying the API
+
+Let's create a new feature for our TODO API. We should be able to modify a TODO.
+
+1) Let's get all TODOs
+``` sh
+$ curl -X GET localhost:8080/todos/
+```
+``` json
+[
+    {
+        "title": "Fazer carinho no cachorro",
+        "id": "D7CC78B3-9760-4CB3-AA43-59AEDCCEE1BC"
+    },
+    {
+        "title": "Agradecer o Gabriel",
+        "id": "D9836F2E-A5FB-4631-8D20-11B5F63FD069"
+    }
+]
+```
+
+Given an id we should be able to modify a given TODO.
+
+
+## Adding Authentication and Authorization to routes
+
+## Creating another Controller
+
+## Deploy
